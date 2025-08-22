@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomePage</title>
+
+  <style>
+    .feedback-div {
+
+      display: flex;
+      margin-left: 50px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+
+    }
+
+    .feedback-card {
+
+      width: 350px;
+      height: 300px;
+      margin: 15px;
+      /* border: 3px solid red; */
+      border-radius: 10px;
+      transition: transform 0.5s;
+      box-shadow: 0 8px 16px rgb(0, 0, 0.8);
+      margin-bottom: 90px;
+      margin-top: 90px;
+
+    }
+
+    .feedback-card img {
+
+      width: 40%;
+      height: 45%;
+      margin-top: -80px;
+      margin-left: 20px;
+      border-radius: 10px;
+      border: 2px solid black;
+      display: inline;
+      margin-right: 10px;
+    }
+
+    .feedback-card:hover {
+      transform: scale(1.1);
+      /*   box-shadow: 0 8px 16px rgba(220, 7, 7, 0.8); */
+      z-index: 10;
+      /* Bring the hovered card to the front */
+    }
+
+
+    .right {
+      width: 50%;
+      height: 500px;
+      float: left;
+      padding: 50px;
+      padding-top: 50px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .left {
+      width: 45%;
+      height: 500px;
+      float: left;
+      margin-right: 20px;
+      border-radius: 0% 50% 50% 0%;
+      background-color: rgba(228, 224, 224, 0.808);
+      background-image: url("{%static 'medi_app/images/medi_connect/medical-img-two.png'%}");
+      background-repeat: no-repeat;
+
+    }
+    p{
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      text-align: center;
+    }
+  </style>
+  {% include 'medi_app/common/common_css.html' %}
+
+</head>
+
+<body style="background-color: aliceblue;">
+
+  <div class="main-body">
+
+
+    {% include 'medi_app/common/navbar.html' %}
+    <!-- carousel code start -->
+
+    <div class="container-fluid mt-5">
+      <div class="left">
+
+      </div>
+      <div class="right">
+        <h5>
+          WELCOME TO
+        </h5>
+        <h1 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+          Medi Connect
+        </h1>
+        <p>
+          Medi Connect is a platform that connects patients with doctors and hospitals. It is a one-stop-shop
+          for all your medical needs. With Medi Connect, you can book appointments, consult doctors, and
+          get medical advice from the comfort of your own home. Our platform is designed to make healthcare
+          accessible and convenient for everyone
+
+        </p>
+
+
+      </div>
+    </div>
+
+    <div class="container-fluid  mt-3">
+      <div class="d-flex flex-row justify-content-start wrap-content">
+        <div class="p-2">
+
+          <img src="{%static 'medi_app/images/medi_connect/choose-icon-four.png'%}" width="400px" class="card" alt="">
+          <h4 class="card-title text-center">
+            Quick Support
+
+          </h4>
+          <p style="text-wrap: stable; width: 400px; padding:10px 20px; ">
+            Get a quick amd easy response from our Patient service team and solve any query within seconds
+
+          </p>
+
+        </div>
+        <div class="p-2">
+          <img src="{%static 'medi_app/images/medi_connect/choose-icon-two.png'%}" width="500px" class="card" alt="">
+          <h4 class="card-title text-center">
+            Interactive Management
+
+          </h4>
+          <p style="text-wrap: stable; width: 400px; padding:10px 20px; ">
+            Engage and connect with your desired people and build a strong professional relationship
+
+          </p>
+
+
+        </div>
+
+        <div class="p-2">
+          <img src="{%static 'medi_app/images/medi_connect/mission-three.png'%}" class="card" alt="">
+
+          <h4 class="card-title text-center">
+            Result oriented Mindset
+
+          </h4>
+          <p style="text-wrap: stable; width: 400px; padding:10px 20px; ">
+            We have a result oriented mindset to provide our users with as best as we can
+
+          </p>
+
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- carousel code end -->
+
+
+
+
+    <!-- cobtainer close -->
+
+    <h2 style="text-align: center;color: blue;">Patient feedback</h2>
+
+    <div class="feedback-div">
+
+      {% for f in feedback_key %}
+
+
+
+      <div class="feedback-card">
+        <img alt="" src="{{f.pic}}">{{f.rating}}
+        <p style="padding: 10px;text-align:justify;">
+          {{f.review}}
+        </p>
+        <h6 style="padding: 10px;"> Name :&nbsp; {{f.name}}</h6>
+
+
+      </div>
+      <!-- flex box item div close -->
+      {% endfor %}
+    </div>
+  </div>
+
+  </div>
+
+  {% include 'medi_app/common/footer.html' %}
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

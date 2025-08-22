@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    {%load static%}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitamin List - Medi Connect</title>
+  {%include 'medi_app/common/common_css.html'%}
+  <style>
+    /* General Reset */
+  
+
+  
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    main {
+      max-width: 1300px;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .vitamin-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .vitamin-card {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 250px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .vitamin-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .vitamin-image {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    footer {
+      margin-top: auto;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      width: 100%;
+    }
+    p{
+        color: red;
+    }
+  </style>
+</head>
+<body>
+    <div class="main-body">
+
+        {%include 'medi_app/common/navbar.html'%}
+    
+  <header>
+
+    <h2>Vitamin Listings</h2>
+  </header>
+
+  <main>
+    <div class="vitamin-container">
+      <!-- Vitamin Cards -->
+      <div class="vitamin-card">
+        <img src="{%static 'medi_app/images/vitamin/A.jpeg'%}" alt="Vitamin A" class="vitamin-image">
+        <h3>Vitamin A</h3>
+        <p>Deficiency: Night Blindness</p>
+      </div>
+
+      <div class="vitamin-card">
+        <img src="{%static 'medi_app/images/vitamin/B1.jpeg'%}" alt="Vitamin B1" class="vitamin-image">
+        <h3>Vitamin B1 (Thiamine)</h3>
+        <p>Deficiency: Beriberi</p>
+      </div>
+
+      <div class="vitamin-card">
+        <img src="{%static 'medi_app/images/vitamin/B2.jpeg'%}" alt="Vitamin B2" class="vitamin-image">
+        <h3>Vitamin B2 (Riboflavin)</h3>
+        <p>Deficiency: Cracked Lips</p>
+      </div>
+
+      <div class="vitamin-card">
+        <img src="{%static 'medi_app/images/vitamin/B3.jpeg'%}" alt="Vitamin B3" class="vitamin-image">
+        <h3>Vitamin B3 (Niacin)</h3>
+        <p>Deficiency: Pellagra</p>
+      </div>
+
+      <div class="vitamin-card">
+        <img src="{%static 'medi_app/images/vitamin/B5.jpeg'%}" alt="Vitamin B5" class="vitamin-image">
+        <h3>Vitamin B5 (Pantothenic Acid)</h3>
+        <p>Deficiency: Fatigue</p>
+      </div>
+
+      <div class="vitamin-card">
+        <img src="{%static 'medi_app/images/vitamin/B6.jpeg'%}" alt="Vitamin B6" class="vitamin-image">
+        <h3>Vitamin B6 (Pyridoxine)</h3>
+        <p>Deficiency: Anemia</p>
+      </div>
+
+      <div class="vitamin-card">
+        <img src="{%static 'medi_app/images/vitamin/B7.jpeg'%}" alt="Vitamin B7" class="vitamin-image">
+        <h3>Vitamin B7 (Biotin)</h3>
+        <p>Deficiency: Hair Loss</p>
+      </div>
+
+      <div class="vitamin-card">
+        <img src="{%static 'medi_app/images/vitamin/B9.jpeg'%}" alt="Vitamin B9" class="vitamin-image">
+        <h3>Vitamin B9 (Folate)</h3>
+        <p>Deficiency: Neural Tube Defects</p>
+      </div>
+
+      <div class="vitamin-card">
+        <img src="{%static 'medi_app/images/vitamin/B12.jpeg'%}" alt="Vitamin B12" class="vitamin-image">
+        <h3>Vitamin B12 (Cobalamin)</h3>
+        <p>Deficiency: Pernicious Anemia</p>
+      </div>
+
+      <div class="vitamin-card">
+        <img src="{%static 'medi_app/images/vitamin/C.jpeg'%}" alt="Vitamin C" class="vitamin-image">
+        <h3>Vitamin C</h3>
+        <p>Deficiency: Scurvy</p>
+      </div>
+
+      <div class="vitamin-card">
+        <img src="{%static 'medi_app/images/vitamin/D.jpeg'%}" alt="Vitamin D" class="vitamin-image">
+        <h3>Vitamin D</h3>
+        <p>Deficiency: Rickets</p>
+      </div>
+
+      <div class="vitamin-card">
+        <img src="{%static 'medi_app/images/vitamin/E.jpeg'%}" alt="Vitamin E" class="vitamin-image">
+        <h3>Vitamin E</h3>
+        <p>Deficiency: Nerve Damage</p>
+      </div>
+
+      <div class="vitamin-card">
+        <img src="{%static 'medi_app/images/vitamin/K.jpeg'%}" alt="Vitamin K" class="vitamin-image">
+        <h3>Vitamin K</h3>
+        <p>Deficiency: Bleeding Disorders</p>
+      </div>
+    </div>
+  </main>
+
+</div>
+    <p>&copy; 2024 Medi Connect. All rights reserved.</p>
+  </footer>
+</body>
+</html>

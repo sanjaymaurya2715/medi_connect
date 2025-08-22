@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient login page</title>
+
+
+    <style>
+        .flex-container {
+            display: flex;
+            width: 100%;
+            gap: 100px;
+            /* flex property */
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+
+        }
+
+        .image-div {
+            width: 30%;
+            height: 300px;
+            border: 2PX solid;
+            border-radius: 20px;
+
+        }
+
+        .img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        .login-div {
+            width: 30%;
+            height: 200px;
+            padding: 30px;
+        }
+    </style>
+    {% include 'medi_app/common/common_css.html' %}
+
+</head>
+
+<body >
+<div class="main-body">
+
+        {% include 'medi_app/common/navbar.html' %}
+
+        {% if messages%}
+
+    {% for m in messages %}
+
+    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert" style="margin-top: 50px; width: 50%;margin-left: auto;margin-right: auto;">
+      <strong>{{m}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    {% endfor %}
+
+    {% endif %}
+
+        <form action="/patient_login/" method="post">
+            {% csrf_token %}
+
+    <div class="container-fluid" style="background-color: rgb(96, 171, 171);">
+
+    </div>
+    
+
+    <div class="flex-container">
+        <div class="image-div">
+            <img src="{% static 'medi_app/images/medi_1.jpeg' %}" class="img" alt="...">
+
+        </div>
+
+        <div class="login-div">
+            <h2 class="text-center" style="color: blue; margin-top: -100px; margin-bottom: 50px;">Login Form</h2>
+
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">
+
+                    <i class="fas fa-user-circle"></i>
+                </span>
+                <input type="text" class="form-control" placeholder=" Enter User Id" aria-label="Username" required
+                    name="user_email">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">
+
+                    <i class="fas fa-lock"></i>
+
+                </span>
+                <input type="password" class="form-control" placeholder=" Enter Password" aria-label="user_pass"
+                    required name="user_pass">
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-danger"> Login</button>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+</form>
+</div>
+    {% include 'medi_app/common/footer.html' %}
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

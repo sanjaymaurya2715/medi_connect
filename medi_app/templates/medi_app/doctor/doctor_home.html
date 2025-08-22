@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Profile Page</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+     
+
+        /* Profile Card */
+        .profile-card {
+            display: flex;
+            width: 600px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            margin: 0px auto;
+            margin-top: 150px;
+        }
+
+        /* Sidebar */
+        .profile-sidebar {
+            width: 240px;
+            background-color: #007bff;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .profile-name {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .profile-role {
+            font-size: 15px;
+            opacity: 0.85;
+        }
+
+        /* Profile Content */
+        .profile-content {
+            padding: 20px;
+            flex: 1;
+        }
+
+        /* Contact Info Section */
+        .contact-info {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        /* Contact Button */
+        .contact-button {
+            display: block;
+            width: 100%;
+            padding: 10px 0;
+            background-color: #007bff;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .contact-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+ {%include 'medi_app/common/common_css.html'%}
+
+</head>
+<body>
+
+    <div class="main-body">
+
+    {%include 'medi_app/doctor/doctor_header.html'%}
+
+    <div class="profile-card">
+        <!-- Sidebar -->
+        <div class="profile-sidebar">
+            <img src="/media/{{doctor_key.profile_picture}}" alt="Profile Picture" class="profile-pic">
+            <h2 class="profile-name">{{doctor_key.name}}</h2>
+        </div>
+
+        <!-- Content -->
+        <div class="profile-content">
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <p><strong>Email:</strong> {{doctor_key.email}}</p>
+                <p><strong>Phone:</strong> {{doctor_key.phone}}</p>
+            </div>
+
+            <!-- Contact Button -->
+        </div>
+    </div>
+</div>
+{%include 'medi_app/common/footer.html'%}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

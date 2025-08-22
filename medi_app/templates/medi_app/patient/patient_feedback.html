@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FeedBack</title>
+  {% include 'medi_app/common/common_css.html' %}
+
+  <style>
+    label {
+      color: red;
+      font-style: italic
+    }
+
+    .radio {
+      display: none;
+    }
+
+    .radio~span {
+      font-size: 3rem;
+      /* #root element  16px*/
+      filter: grayscale(100);
+      cursor: pointer;
+      transition: 0.1s;
+    }
+
+    .radio:checked~span {
+      filter: grayscale(0);
+      font-size: 3.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-body">
+    {% include 'medi_app/patient/patient_header.html' %}
+
+
+    {% if messages%}
+
+    {% for m in messages %}
+
+    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert" style="margin-top: 90px; width: 50%;margin-left: auto;margin-right: auto;">
+      <strong>{{m}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    {% endfor %}
+
+    {% endif %}
+
+    <h2 style="text-align:center;margin-top:6%;color:#bf1313;"> FeedBack form</h2>
+    <h6 style="text-align:center">Provide your FeedBack!!!It is valuable for us to </h6>
+    <form method="post" action="/patient_feedback/">
+      {%csrf_token%}
+      <!-- cross side request forgery (csrf)  important for safe data by hackers -->
+      <div class="container" style="width:40%;border:3px solid #4d0163;border-radius: 10px">
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" name="u_name" class="form-control" id="name" placeholder="Enter name HERE"
+            required="required">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" name="u_email" class="form-control" id="email" placeholder="Enter Email HERE"
+            required="required">
+        </div>
+
+        <div class="mb-3">
+          <h6 style="color:red">Rate Us</h6>
+          <label For="1">
+            <input class="radio" type="radio" name="rating" id="1" value="⭐" required />
+            <span>😒
+            </span>
+          </label>
+          <label For="2">
+            <input class="radio" type="radio" name="rating" id="2" value="⭐⭐" />
+            <span>🙂</span>
+            <!-- &#128528; -->
+          </label>
+          <label For="3">
+            <input class="radio" type="radio" name="rating" id="3" value="⭐⭐⭐" />
+            <span>🤗</span>
+          </label>
+          <label For="4">
+            <input class="radio" type="radio" name="rating" id="4" value="⭐⭐⭐⭐" />
+            <span>😂</span>
+          </label>
+          <label For="5">
+            <input class="radio" type="radio" name="rating" id="5" value="⭐⭐⭐⭐⭐" />
+            <span>🤩</span>
+          </label>
+        </div>
+
+        <div class="mb-3">
+          <label for="remarks" class="form-label">Your Reviews </label>
+          <textarea class="form-control" id="remarks" rows="3" name="u_review" placeholder="Your Remarks"
+            required="required"> </textarea>
+        </div>
+
+
+        <div style="display: flex;justify-content: center;gap:10px">
+          <button type="reset" class="btn btn-warning">Reset</button>
+          <button type="submit" class="btn btn-success">Submit</button>
+
+        </div>
+
+
+
+      </div>
+
+
+    </form>
+
+  </div>
+  {% include 'medi_app/common/footer.html' %}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
