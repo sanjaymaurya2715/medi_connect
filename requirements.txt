@@ -1,0 +1,4 @@
+﻿asgiref
+django
+pillow
+
